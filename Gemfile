@@ -41,3 +41,7 @@ group :development, :test do
   gem 'spring'
 end
 
+# .slim
+gem 'slim-rails'
+gem 'html2slim', group: :development
+
