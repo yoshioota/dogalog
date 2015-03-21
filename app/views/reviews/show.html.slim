@@ -1,0 +1,16 @@
+h2
+  = link_to @review.movie.title, movie_path(@review.movie)
+
+p
+  = link_to @review.user.id, u_path(@review.user)
+  |さんのレビュー
+
+p
+  strong Title:
+  = @review.title
+p
+  strong Description:
+  = @review.description
+p
+  strong Rating:
+  = @review.rating

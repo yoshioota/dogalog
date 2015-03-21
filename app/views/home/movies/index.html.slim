@@ -1,0 +1,27 @@
+h1 あなたが登録した動画
+
+= link_to '動画登録', new_home_movie_path, class: 'btn btn-primary'
+
+table.table
+  thead
+    tr
+      th Title
+      th Description
+      th レビュー
+      th
+      th
+
+  tbody
+    - reviews = current_user.reviews.where(movie_id: @movies.map(&:id)).to_a.group_by(&:movie_id)
+    - @movies.each do |movie|
+      tr
+        td = link_to movie.title, [:home, movie]
+        td = movie.description
+        td
+          - if review = reviews[movie.id]
+            = link_to 'レビューを見る', home_movie_review_path(movie, review)
+          - else
+            = link_to 'レビューを書く', new_home_movie_review_path(movie)
+
+        td = link_to 'Edit', edit_home_movie_path(movie)
+        td = link_to 'Destroy', [:home, movie], data: {:confirm => 'Are you sure?'}, :method => :delete

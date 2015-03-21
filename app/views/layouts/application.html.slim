@@ -1,6 +1,7 @@
 doctype html
 html
   head
+    meta charset='UTF-8'
     title
       | Dogalog
     = stylesheet_link_tag    'application', media: 'all'
@@ -23,18 +24,11 @@ html
         #navbar.collapse.navbar-collapse
           ul.nav.navbar-nav
             li.active
-              a[href="#"]
-                | Home
-            li
-              a[href="#about"]
-                | About
-            li
-              a[href="#contact"]
-                | Contact
+              = link_to '動画', movies_path
 
           - if current_user
             ul.nav.navbar-nav.navbar-right
-              li = link_to current_user.email, '#'
+              li = link_to current_user.image_tag_and_name, home_path
               li = link_to 'ログアウト', destroy_user_session_path, method: :delete
 
     div*{class: content_for?(:container) ? yield(:container) : 'container'}

@@ -1,0 +1,17 @@
+h1 = @user.email
+
+div
+  h4 登録動画 #{@user.movies.count}件
+  - @user.movies.each do |movie|
+    div
+      = link_to movie.title, movie_path(movie)
+
+div
+  h4 レビュー #{number_with_delimiter(@user.reviews.in_public.count)}件
+  - @user.reviews.in_public.each do |review|
+    div
+      = link_to review_path(review) do
+        div
+          = review.title
+        div
+          = truncate review.description

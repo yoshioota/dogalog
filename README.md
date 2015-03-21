@@ -24,3 +24,14 @@
 - 動画の感想を登録することができる。
 
 動画の感想をの公開状態を設定することができる。
+
+
+##### その他
+
+###### TESTに関するリンク
+
+https://github.com/plataformatec/devise/wiki/How-To:-Test-controllers-with-Rails-3-and-4-%28and-RSpec%29
+http://konyu.hatenablog.com/entry/2014/11/12/230433
+https://github.com/plataformatec/devise/wiki/How-To:-Test-with-Capybara
+http://ryutamaki.hatenablog.com/entry/2014/01/25/233304
+

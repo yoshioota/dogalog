@@ -1,0 +1,16 @@
+h1 動画一覧
+
+table.table
+  thead
+    tr
+      th Title
+      th Description
+
+  tbody
+    - @movies.each do |movie|
+      tr
+        td = link_to movie.title, movie
+        td = movie.description
+
+.text-center
+  = paginate @movies

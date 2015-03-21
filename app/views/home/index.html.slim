@@ -1,0 +1,13 @@
+h2 Home
+
+.row
+  .col-sm-9
+    div
+      = link_to "登録した動画(#{current_user.movies.count})", home_movies_path, class: 'btn btn-default'
+      |&nbsp;
+      = link_to "レビュー(#{current_user.reviews.count})", home_reviews_path, class: 'btn btn-default'
+
+  .col-sm-3
+    .well.text-center
+      div = image_tag current_user.profile_url, height: 80
+      div = current_user.display_name

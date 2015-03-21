@@ -51,6 +51,7 @@ gem 'html2slim', group: :development
 gem 'bootstrap-sass'
 gem 'autoprefixer-rails'
 
+gem 'bootstrap_form'
 
 ## App server系
 
@@ -70,7 +71,6 @@ end
 group :development do
   gem 'letter_opener'
   gem 'quiet_assets'
-  gem 'tapp'
   gem 'view_source_map'
 end
 
@@ -78,3 +78,44 @@ end
 
 # https://github.com/plataformatec/devise#getting-started
 gem 'devise'
+
+## テスト系
+group :development, :test do
+  gem 'rspec-rails'
+
+  # http://www.rubydoc.info/gems/factory_girl/file/GETTING_STARTED.md
+  gem 'factory_girl_rails'
+
+  # https://github.com/stympy/faker
+  gem 'faker'
+
+
+  # http://techracho.bpsinc.jp/hachi8833/2014_05_28/17557
+  gem 'database_cleaner'
+
+  gem 'spring-commands-rspec'
+end
+
+# http://makandracards.com/konjoot/20749-rspec-+-capybara-+-rails4-+-spork-intergation-tests-setup-with-selenium-and-poltergeist
+# http://blog.livedoor.jp/sasata299/archives/51924944.html
+group :test do
+  gem 'capybara'
+  gem 'launchy'
+
+  # $ brew phantomjs すること
+  gem 'poltergeist'
+
+  # https://github.com/jnicklas/turnip
+  gem 'turnip'
+end
+
+group :development do
+  gem 'guard-rspec', require: false
+  gem 'guard-livereload', require: false
+  gem 'ffi'
+end
+
+# ページネーション
+# http://ruby-journal.com/how-to-style-kaminari-pagination-with-twitter-bootstrap-3/
+# rails generate kaminari:views bootstrap3
+gem 'kaminari'

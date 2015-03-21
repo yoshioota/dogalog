@@ -1,0 +1,18 @@
+h1
+  |Movie:
+  = link_to @review.movie.title, @review.movie
+
+p
+  strong Title:
+  = @review.title
+p
+  strong Description:
+  = @review.description
+p
+  strong Rating:
+  = @review.rating
+p
+  strong In public:
+  = @review.in_public
+
+= link_to 'Edit Review', edit_home_movie_review_path(@movie, @review), class: 'btn btn-default'

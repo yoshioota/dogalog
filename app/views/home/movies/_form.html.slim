@@ -1,0 +1,13 @@
+= bootstrap_form_for [:home, @movie] do |f|
+  - if @movie.errors.any?
+    #error_explanation
+      h2 = "#{pluralize(@movie.errors.count, "error")} prohibited this movie from being saved:"
+      ul
+        - @movie.errors.full_messages.each do |message|
+          li = message
+
+  = f.text_field :title, autofocus: true
+  = f.text_area :description, rows: 10
+  = f.text_field :url
+
+  .actions = f.submit

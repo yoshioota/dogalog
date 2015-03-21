@@ -1,0 +1,5 @@
+.text-center.alert*{class: "alert-#{alert_type}"}
+  button(type="button" class="close" data-dismiss="alert")
+    span(aria-hidden="true") ×
+    span(class="sr-only")> Close
+  = raw msg

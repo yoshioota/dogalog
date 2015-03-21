@@ -1,0 +1,27 @@
+h1
+  = @movie.title
+
+p
+  strong Description:
+  = @movie.description
+p
+  strong Url:
+  = @movie.url
+
+.pull-right
+  = link_to 'レビューする', new_home_movie_review_path(@movie), class: 'btn btn-default'
+
+.clearfix
+
+div
+  h4 レビュー一覧
+  - @movie.reviews.in_public.each do |review|
+    .well
+      div
+        = link_to review.title, review_path(review)
+      div
+        |点数:#{review.rating}
+      div
+        = truncate review.description
+      div
+        |#{link_to review.user.image_tag_and_name, u_path(review.user)}さん

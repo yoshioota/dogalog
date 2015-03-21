@@ -1,0 +1,24 @@
+h1 あなたのレビュー
+
+table.table
+  thead
+    tr
+      th Title
+      th Description
+      th Rating
+      th In public
+      th Movie
+      th
+      th
+      th
+
+  tbody
+    - @reviews.each do |review|
+      tr
+        td = link_to review.title, [:home, review.movie, review]
+        td = review.description
+        td = review.rating
+        td = review.in_public
+        td = link_to review.movie.title, movie_path(review.movie)
+        td = link_to 'Edit', edit_review_path(review)
+        td = link_to 'Destroy', [:home, review], data: {:confirm => 'Are you sure?'}, :method => :delete

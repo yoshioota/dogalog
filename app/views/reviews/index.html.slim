@@ -1,0 +1,29 @@
+h1 Listing reviews
+
+table
+  thead
+    tr
+      th Movie
+      th User
+      th Title
+      th Description
+      th Rating
+      th
+      th
+      th
+
+  tbody
+    - @reviews.each do |review|
+      tr
+        td = review.movie
+        td = review.user
+        td = review.title
+        td = review.description
+        td = review.rating
+        td = link_to 'Show', review
+        td = link_to 'Edit', edit_review_path(review)
+        td = link_to 'Destroy', review, data: {:confirm => 'Are you sure?'}, :method => :delete
+
+br
+
+= link_to 'New Review', new_review_path
