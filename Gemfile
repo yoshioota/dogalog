@@ -51,3 +51,25 @@ gem 'html2slim', group: :development
 gem 'bootstrap-sass'
 gem 'autoprefixer-rails'
 
+
+## App server系
+
+gem 'foreman'
+gem 'puma'
+
+## 開発系
+
+gem 'awesome_print'
+
+group :development do
+  gem 'better_errors'
+  gem 'binding_of_caller'
+  gem 'rails-footnotes', '>= 4.0.0', '<5'
+end
+
+group :development do
+  gem 'letter_opener'
+  gem 'quiet_assets'
+  gem 'tapp'
+  gem 'view_source_map'
+end
