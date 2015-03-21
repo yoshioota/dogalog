@@ -42,6 +42,12 @@ group :development, :test do
 end
 
 # .slim
+
 gem 'slim-rails'
 gem 'html2slim', group: :development
+
+# bootstraip sass
+
+gem 'bootstrap-sass'
+gem 'autoprefixer-rails'
 
