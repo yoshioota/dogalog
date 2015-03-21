@@ -73,3 +73,8 @@ group :development do
   gem 'tapp'
   gem 'view_source_map'
 end
+
+## 認証
+
+# https://github.com/plataformatec/devise#getting-started
+gem 'devise'
