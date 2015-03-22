@@ -17,13 +17,12 @@
 #
 # See http://rubydoc.info/gems/rspec-core/RSpec/Core/Configuration
 
-
 # capybara
 require 'capybara/poltergeist'
 Capybara.javascript_driver = :poltergeist
 
 # turnip step - guard file にstepの場所はここなので変更
-Dir.glob('spec/acceptance/steps/**/*steps.rb') { |f| load f, true }
+# Dir.glob('spec/acceptance/steps/**/*steps.rb') { |f| load f, true }
 
 RSpec.configure do |config|
 
