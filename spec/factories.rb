@@ -8,11 +8,11 @@ FactoryGirl.define do
     title { 'MyString' }
     description { 'MyText' }
     url { 'MyText' }
-    user { nil }
+    association :user, factory: :user
   end
 
   factory :review do
-    movie { nil }
+    association :movie, factory: :movie
     user { nil }
     title { 'MyString' }
     description { 'MyText' }

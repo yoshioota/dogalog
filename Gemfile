@@ -100,6 +100,8 @@ group :development, :test do
   # http://techracho.bpsinc.jp/hachi8833/2014_05_28/17557
   gem 'database_cleaner'
 
+  # rspec をspring 経由で呼ぶようにする
+  # bundle exec spring binstub rspec
   gem 'spring-commands-rspec'
 end
 

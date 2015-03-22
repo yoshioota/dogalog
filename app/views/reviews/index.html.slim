@@ -1,29 +1,20 @@
 h1 Listing reviews
 
-table
+table.table
   thead
     tr
       th Movie
-      th User
-      th Title
-      th Description
+      th
       th Rating
-      th
-      th
-      th
 
   tbody
     - @reviews.each do |review|
       tr
-        td = review.movie
-        td = review.user
-        td = review.title
-        td = review.description
+        td = link_to review.movie.title, movie_path(review.movie)
+        td
+          = link_to review.title, review
+          |&nbsp;&nbsp;
+          = truncate(review.description)
+          |&nbsp;&nbsp;
+          | by #{link_to review.user.image_tag_and_name, u_path(review.user)}
         td = review.rating
-        td = link_to 'Show', review
-        td = link_to 'Edit', edit_review_path(review)
-        td = link_to 'Destroy', review, data: {:confirm => 'Are you sure?'}, :method => :delete
-
-br
-
-= link_to 'New Review', new_review_path

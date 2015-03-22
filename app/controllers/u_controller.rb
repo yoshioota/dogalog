@@ -1,9 +1,6 @@
 class UController < AuthorizedController
 
-  def index
-  end
-
   def show
-    @user = User.find(params[:id])
+    @user = User.includes(:movies, :reviews).find(params[:id])
   end
 end

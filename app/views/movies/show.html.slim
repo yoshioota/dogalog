@@ -10,7 +10,7 @@ p
 
 p
   strong 登録した人:
-  = @movie.user.display_name
+  = link_to @movie.user.image_tag_and_name, u_path(@movie.user)
 
 .pull-right
   = link_to 'レビューする', new_home_movie_review_path(@movie), class: 'btn btn-default'
