@@ -4,7 +4,8 @@ div.text-center
   p.lead
     | Railの学習用としてシンプルに作ってます。
 
-p.text-center
-  = link_to '登録', new_user_registration_path, class: 'btn btn-default'
-  |&nbsp;
-  = link_to 'ログイン', new_user_registration_path, class: 'btn btn-default'
+- if current_user.nil?
+  p.text-center
+    = link_to '登録', new_user_registration_path, class: 'btn btn-default'
+    |&nbsp;
+    = link_to 'ログイン', new_user_registration_path, class: 'btn btn-default'

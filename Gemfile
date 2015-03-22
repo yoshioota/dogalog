@@ -78,6 +78,13 @@ end
 
 # https://github.com/plataformatec/devise#getting-started
 gem 'devise'
+# deviseのビューとかコントローラーを変更する場合はこちらを参考に。
+# https://github.com/plataformatec/devise#configuring-views
+# https://github.com/plataformatec/devise#configuring-controllers
+# 例)
+# $ rails generate devise:views users
+# $ rails generate devise:controllers users
+# 生成ビューはerb2slimでslim化可能
 
 ## テスト系
 group :development, :test do

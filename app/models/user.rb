@@ -1,11 +1,19 @@
 class User < ActiveRecord::Base
+
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
-  devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :trackable, :validatable
+  devise \
+    :database_authenticatable,
+    :registerable,
+    :recoverable,
+    :rememberable,
+    :trackable,
+    :validatable
 
   has_many :movies
   has_many :reviews
+
+  validates :display_name, presence: true
 
   def profile_thumbnail_url
     GravatarUtils.url(self.email, {s: 16})
@@ -16,6 +24,6 @@ class User < ActiveRecord::Base
   end
 
   def image_tag_and_name
-    "#{ActionController::Base.helpers.image_tag(self.profile_thumbnail_url, width: 16, height: 16)} #{self.email}".html_safe
+    "#{ActionController::Base.helpers.image_tag(self.profile_thumbnail_url, width: 16, height: 16)} #{self.display_name}".html_safe
   end
 end

@@ -12,7 +12,9 @@ Rails.application.routes.draw do
     end
   end
 
-  devise_for :users
+  devise_for :users, controllers: {
+      registrations: 'users/registrations'
+  }
 
   get 'welcome/index'
   root 'welcome#index'
