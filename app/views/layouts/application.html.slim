@@ -31,5 +31,15 @@ html
               li = link_to current_user.image_tag_and_name, home_path
               li = link_to 'ログアウト', destroy_user_session_path, method: :delete
 
+    .container
+      = render 'shared/breadcrumbs'
+
+    .container
+      .row
+        .col-xs-12.js-alert-area
+          - if flash.present?
+            - flash.each do |type, msg|
+              = render partial: 'shared/alert_check', locals: {alert_type: convert_alert_ype(type), msg: msg}
+
     div*{class: content_for?(:container) ? yield(:container) : 'container'}
       = yield

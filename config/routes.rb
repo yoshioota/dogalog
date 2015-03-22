@@ -6,7 +6,7 @@ Rails.application.routes.draw do
 
   get '/home' => 'home#index'
   namespace :home do
-    resources :reviews
+    resources :reviews, only: [:index]
     resources :movies do
       resources :reviews
     end

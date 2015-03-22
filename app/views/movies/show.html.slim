@@ -8,6 +8,10 @@ p
   strong Url:
   = @movie.url
 
+p
+  strong 登録した人:
+  = @movie.user.display_name
+
 .pull-right
   = link_to 'レビューする', new_home_movie_review_path(@movie), class: 'btn btn-default'
 
@@ -22,6 +26,7 @@ div
       div
         |点数:#{review.rating}
       div
-        = truncate review.description
+        = simple_format truncate(review.description)
+        = link_to 'もっと読む..', review_path(review)
       div
         |#{link_to review.user.image_tag_and_name, u_path(review.user)}さん

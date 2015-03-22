@@ -6,4 +6,6 @@ class Review < ActiveRecord::Base
 
   scope :in_public, ->{ where(in_public: true) }
 
+  validates :rating, presence: true
+
 end

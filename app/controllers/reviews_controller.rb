@@ -12,6 +12,6 @@ class ReviewsController < ApplicationController
   private
 
   def set_review
-    @review = Review.find(params[:id])
+    @review = Review.in_public.find(params[:id])
   end
 end

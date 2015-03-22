@@ -1,13 +1,23 @@
-class Home::ReviewsController < ApplicationController
+class Home::ReviewsController < Home::BaseController
 
   before_action :set_movie
   before_action :set_review, only: [:show, :edit, :update, :destroy]
+
+  before_action do
+    if action_name == 'index'
+      add_breadcrumb 'あなたのレビュー'
+    else
+      add_breadcrumb 'あなたのレビュー', home_reviews_path
+    end
+  end
 
   def index
     @reviews = current_user.reviews.includes(:movie).all
   end
 
   def show
+    add_breadcrumb @movie.title, home_movie_path(@movie)
+    add_breadcrumb @review.title
   end
 
   def new
@@ -20,6 +30,9 @@ class Home::ReviewsController < ApplicationController
   end
 
   def edit
+    add_breadcrumb @movie.title, home_movie_path(@movie)
+    add_breadcrumb @review.title, home_movie_review_path(@movie, @review)
+    add_breadcrumb 'レビュー変更'
   end
 
   def create
