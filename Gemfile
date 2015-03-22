@@ -58,6 +58,9 @@ gem 'bootstrap_form'
 gem 'foreman'
 gem 'puma'
 
+# herokuで動かすときはこれが必要
+gem 'rails_12factor', group: :production
+
 ## 開発系
 
 gem 'awesome_print'
@@ -128,3 +131,4 @@ end
 # http://ruby-journal.com/how-to-style-kaminari-pagination-with-twitter-bootstrap-3/
 # rails generate kaminari:views bootstrap3
 gem 'kaminari'
+

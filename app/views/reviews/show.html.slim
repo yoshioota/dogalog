@@ -2,7 +2,7 @@ h2
   = link_to @review.movie.title, movie_path(@review.movie)
 
 p
-  = link_to @review.user.id, u_path(@review.user)
+  = link_to @review.user.image_tag_and_name, u_path(@review.user)
   |さんのレビュー
 
 p

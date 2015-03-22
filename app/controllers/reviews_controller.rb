@@ -7,6 +7,10 @@ class ReviewsController < ApplicationController
   end
 
   def show
+    add_breadcrumb '動画一覧', movies_path
+    add_breadcrumb @review.movie.title, movie_path(@review.movie)
+    add_breadcrumb "#{@review.user.display_name}さんのレビュー"
+    add_breadcrumb @review.title
   end
 
   private
