@@ -52,6 +52,9 @@ gem 'autoprefixer-rails'
 
 gem 'bootstrap_form'
 
+# Font Awesome を使用する
+gem 'font-awesome-rails'
+
 ## App server系
 
 gem 'foreman'

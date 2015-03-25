@@ -6,6 +6,10 @@ div.text-center
 
 - if current_user.nil?
   p.text-center
-    = link_to '登録', new_user_registration_path, class: 'btn btn-default'
+    = link_to new_user_registration_path, class: 'btn btn-default' do
+      = fa_icon 'pencil-square-o fw'
+      |登録
     |&nbsp;
-    = link_to 'ログイン', new_user_session_path, class: 'btn btn-default'
+    = link_to new_user_session_path, class: 'btn btn-default' do
+      = fa_icon 'sign-in fw'
+      |ログイン

@@ -20,5 +20,11 @@ table.table
         td = review.rating
         td = review.in_public
         td = link_to review.movie.title, movie_path(review.movie)
-        td = link_to 'Edit', edit_home_movie_review_path(review.movie, review)
-        td = link_to 'Destroy', [:home, review.movie, review], data: {:confirm => 'Are you sure?'}, :method => :delete
+        td
+          = link_to edit_home_movie_review_path(review.movie, review) do
+            = fa_icon 'edit fw'
+            |Edit
+        td
+          = link_to [:home, review.movie, review], data: {:confirm => 'Are you sure?'}, :method => :delete do
+            = fa_icon 'trash-o fw'
+            |Destroy

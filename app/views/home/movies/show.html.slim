@@ -10,6 +10,18 @@ p
   strong Url:
   = link_to @movie.url, @movie.url, target: :_blank
 
-= link_to 'Edit', edit_home_movie_path(@movie), class: 'btn btn-default'
+= link_to movie_path(@movie), class: 'btn btn-default' do
+  = fa_icon 'eye fw'
+  |一般側で確認する
+
 |&nbsp;&nbsp;
-= link_to 'レビューを書く', new_home_movie_review_path(@movie), class: 'btn btn-default'
+
+= link_to edit_home_movie_path(@movie), class: 'btn btn-default' do
+  = fa_icon 'edit fw'
+  |Edit
+
+|&nbsp;&nbsp;
+
+= link_to new_home_movie_review_path(@movie), class: 'btn btn-default' do
+  = fa_icon 'pencil fw'
+  |レビューを書く

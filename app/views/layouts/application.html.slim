@@ -18,18 +18,23 @@ html
             span.icon-bar
             span.icon-bar
             span.icon-bar
-          a.navbar-brand[href="/"]
-            | DogaLog
+
+          = link_to 'DogaLog', '/', class: 'navbar-brand'
 
         #navbar.collapse.navbar-collapse
           ul.nav.navbar-nav
             li.active
-              = link_to '動画', movies_path
+              = link_to movies_path do
+                = fa_icon 'file-video-o fw'
+                |動画
 
           - if current_user
             ul.nav.navbar-nav.navbar-right
               li = link_to current_user.image_tag_and_name, home_path
-              li = link_to 'ログアウト', destroy_user_session_path, method: :delete
+              li
+                = link_to destroy_user_session_path, method: :delete do
+                  = fa_icon 'sign-out fw'
+                  |ログアウト
 
     .container
       = render 'shared/breadcrumbs'

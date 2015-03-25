@@ -3,9 +3,13 @@ h2 Home
 .row
   .col-sm-9
     div
-      = link_to "登録した動画(#{current_user.movies.count})", home_movies_path, class: 'btn btn-default'
-      |&nbsp;
-      = link_to "レビュー(#{current_user.reviews.count})", home_reviews_path, class: 'btn btn-default'
+      = link_to home_movies_path, class: 'btn btn-default' do
+        = fa_icon 'file-video-o fw'
+        |あなたが登録した動画(#{current_user.movies.count})
+      |&nbsp;&nbsp;
+      = link_to home_reviews_path, class: 'btn btn-default'
+        = fa_icon 'comment-o fw'
+        |あなたのレビュー(#{current_user.reviews.count})
 
   .col-sm-3
     .well.text-center
