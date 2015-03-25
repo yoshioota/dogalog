@@ -6,6 +6,14 @@ class Review < ActiveRecord::Base
 
   scope :in_public, ->{ where(in_public: true) }
 
-  validates :rating, presence: true
+  validates :title,
+      presence: true,
+      length: {maximum: 255}
 
+  validates :description,
+      length: {maximum: 100000}
+
+  validates :rating,
+      presence: true,
+      inclusion: {in: 0..10}
 end

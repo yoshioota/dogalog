@@ -1,34 +1,33 @@
 source 'https://rubygems.org'
 
+# ruby バージョン指定
+# これを指定しないとherokuではデフォルトのバージョンが使用される(現在 ruby 2.0.0)。
+# サンプルで入れるのはどうかと思ったけど、一応入れておく。
+ruby '2.2.1'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.1'
+
 # Use postgresql as the database for Active Record
 gem 'pg'
+
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
+
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
+
 # Use CoffeeScript for .coffee assets and views
 gem 'coffee-rails', '~> 4.1.0'
-# See https://github.com/rails/execjs#readme for more supported runtimes
-# gem 'therubyracer', platforms: :ruby
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
+
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 2.0'
+
 # bundle exec rake doc:rails generates the API under doc/api.
 gem 'sdoc', '~> 0.4.0', group: :doc
-
-# Use ActiveModel has_secure_password
-# gem 'bcrypt', '~> 3.1.7'
-
-# Use Unicorn as the app server
-# gem 'unicorn'
-
-# Use Capistrano for deployment
-# gem 'capistrano-rails', group: :development
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
@@ -63,6 +62,13 @@ gem 'rails_12factor', group: :production
 
 ## 開発系
 
+# foremanで動かした時にSQLログを出す
+# 元々 rails_12factor の中で呼ばれてる
+# group :test も追加するとテスト中にSQLのログも流れてくる。
+group :development do
+  gem 'rails_stdout_logging'
+end
+
 gem 'awesome_print'
 
 group :development do
@@ -75,6 +81,11 @@ group :development do
   gem 'letter_opener'
   gem 'quiet_assets'
   gem 'view_source_map'
+
+  # N + 1 クエリを見つけ警告してくれるgem
+  # 設定はconfig/environments/develop.rbへ追加する
+  # https://github.com/flyerhzm/bullet
+  gem 'bullet'
 end
 
 ## 認証
@@ -91,6 +102,8 @@ gem 'devise'
 
 ## テスト系
 group :development, :test do
+
+  # RSpec
   gem 'rspec-rails'
 
   # http://www.rubydoc.info/gems/factory_girl/file/GETTING_STARTED.md
@@ -98,7 +111,6 @@ group :development, :test do
 
   # https://github.com/stympy/faker
   gem 'faker'
-
 
   # http://techracho.bpsinc.jp/hachi8833/2014_05_28/17557
   gem 'database_cleaner'
@@ -124,11 +136,9 @@ end
 group :development do
   gem 'guard-rspec', require: false
   gem 'guard-livereload', require: false
-  gem 'ffi'
 end
 
 # ページネーション
 # http://ruby-journal.com/how-to-style-kaminari-pagination-with-twitter-bootstrap-3/
 # rails generate kaminari:views bootstrap3
 gem 'kaminari'
-

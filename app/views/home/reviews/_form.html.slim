@@ -1,16 +1,11 @@
 = bootstrap_form_for [:home, @movie, @review] do |f|
-  - if @review.errors.any?
-    #error_explanation
-      h2 = "#{pluralize(@review.errors.count, "error")} prohibited this review from being saved:"
-      ul
-        - @review.errors.full_messages.each do |message|
-          li = message
+  = render 'shared/record_error_check', record: @review
 
   = f.text_field :title, autofocus: true
 
   = f.text_area :description, rows: 15
 
-  = f.number_field :rating
+  = f.select :rating, (0..10).map{|v| [v, v]}
 
   = f.check_box :in_public
 

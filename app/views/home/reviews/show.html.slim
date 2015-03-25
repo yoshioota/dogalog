@@ -1,6 +1,6 @@
 h1
-  |Movie:
   = link_to @review.movie.title, @review.movie
+  |に対する#{current_user.display_name}さんのレビュー
 
 p
   strong Title:
@@ -16,3 +16,6 @@ p
   = @review.in_public
 
 = link_to 'Edit Review', edit_home_movie_review_path(@movie, @review), class: 'btn btn-default'
+
+.pull-right
+  = link_to 'Delete', home_movie_review_path(@movie, @review), data: {:confirm => 'Are you sure?'}, method: :delete, class: 'btn btn-danger'

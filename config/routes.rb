@@ -1,14 +1,14 @@
 Rails.application.routes.draw do
 
-  resources :u
-  resources :movies
-  resources :reviews
+  resources :u, only: :show
+  resources :movies, only: [:index, :show]
+  resources :reviews, only: [:index, :show]
 
   get '/home' => 'home#index'
   namespace :home do
-    resources :reviews, only: [:index]
+    resources :reviews, only: :index
     resources :movies do
-      resources :reviews
+      resources :reviews, except: :index
     end
   end
 

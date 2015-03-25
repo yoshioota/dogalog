@@ -54,6 +54,9 @@ GEM
       sass (>= 3.2.19)
     bootstrap_form (2.3.0)
     builder (3.2.2)
+    bullet (4.14.4)
+      activesupport (>= 3.0.0)
+      uniform_notifier (>= 1.6.0)
     byebug (4.0.3)
       columnize (= 0.9.0)
     capybara (2.4.4)
@@ -289,6 +292,7 @@ GEM
     uglifier (2.7.1)
       execjs (>= 0.3.0)
       json (>= 1.8.0)
+    uniform_notifier (1.8.0)
     view_source_map (0.1.0)
       rails (>= 3.2)
     warden (1.2.3)
@@ -314,6 +318,7 @@ DEPENDENCIES
   binding_of_caller
   bootstrap-sass
   bootstrap_form
+  bullet
   byebug
   capybara
   coffee-rails (~> 4.1.0)
@@ -321,7 +326,6 @@ DEPENDENCIES
   devise
   factory_girl_rails
   faker
-  ffi
   foreman
   guard-livereload
   guard-rspec
@@ -338,6 +342,7 @@ DEPENDENCIES
   rails (= 4.2.1)
   rails-footnotes (>= 4.0.0, < 5)
   rails_12factor
+  rails_stdout_logging
   rspec-rails
   sass-rails (~> 5.0)
   sdoc (~> 0.4.0)

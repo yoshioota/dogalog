@@ -12,6 +12,8 @@
 !/log/.keep
 /tmp
 
+/.env
+
 # rubymine用
 .idea
 
