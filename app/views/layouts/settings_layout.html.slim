@@ -52,4 +52,8 @@ html
               = render partial: 'shared/alert_check', locals: {alert_type: convert_alert_ype(type), msg: msg}
 
     div*{class: content_for?(:container) ? yield(:container) : 'container'}
-      = yield
+      .row
+        .col-sm-3
+          = render 'settings/side_menu'
+        .col-sm-9
+          = yield

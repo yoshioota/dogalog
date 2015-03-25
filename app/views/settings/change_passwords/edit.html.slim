@@ -1,0 +1,12 @@
+h2 パスワード変更
+
+= bootstrap_form_for @user, url: settings_change_password_path, method: :patch do |f|
+  = render 'shared/record_error_check', record: f.object
+
+  = f.password_field :current_password, value: f.object.current_password, autofocus: true
+
+  = f.password_field :password, value: f.object.password
+
+  = f.password_field :password_confirmation, value: f.object.password_confirmation
+
+  = f.submit '変更する'

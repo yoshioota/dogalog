@@ -5,15 +5,15 @@ FactoryGirl.define do
   end
 
   factory :movie do
+    association :user, factory: :user
     title { 'MyString' }
     description { 'MyText' }
-    url { 'MyText' }
-    association :user, factory: :user
+    url { 'http://example.com/' }
   end
 
   factory :review do
     association :movie, factory: :movie
-    user { nil }
+    association :user, factory: :user
     title { 'MyString' }
     description { 'MyText' }
     rating { 1 }
@@ -25,5 +25,6 @@ FactoryGirl.define do
     display_name { Faker::Name.name }
     password { 'password' }
     password_confirmation { 'password' }
+    confirmed_at { Time.now }
   end
 end

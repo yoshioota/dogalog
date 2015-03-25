@@ -1,5 +1,5 @@
 = bootstrap_form_for [:home, @movie, @review] do |f|
-  = render 'shared/record_error_check', record: @review
+  = render 'shared/record_error_check', record: f.object
 
   = f.text_field :title, autofocus: true
 

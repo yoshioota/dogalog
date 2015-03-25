@@ -1,0 +1,13 @@
+.panel.panel-default
+  .panel-heading
+    |個人設定
+
+  ul.list-group
+    li.list-group-item*{ class: "#{'active' if controller_path == 'settings/accounts'}" }
+      = link_to 'アカウント', edit_settings_account_path
+
+    li.list-group-item*{ class: "#{'active' if controller_path == 'settings/change_passwords'}" }
+      = link_to 'パスワード変更', edit_settings_change_password_path
+
+    li.list-group-item*{ class: "#{'active' if controller_path == 'settings/withdrawals'}" }
+      = link_to '退会', edit_settings_withdrawal_path
