@@ -1,6 +1,12 @@
 h2
   = link_to @review.movie.title, movie_path(@review.movie)
 
+.row
+  .col-xs-12.text-center
+    #youtube-player
+
+hr
+
 p
   = link_to @review.user.image_tag_and_name, u_path(@review.user)
   |さんのレビュー
@@ -16,3 +22,8 @@ p
 p
   strong Rating:
   = @review.rating
+
+javascript:
+  var videoId = '#{@review.movie.video_id}';
+
+= javascript_include_tag 'youtube'

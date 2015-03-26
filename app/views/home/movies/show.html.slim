@@ -1,3 +1,7 @@
+.row
+  .col-xs-12.text-center
+    #youtube-player
+
 p
   strong Title:
   = @movie.title
@@ -25,3 +29,7 @@ p
 = link_to new_home_movie_review_path(@movie), class: 'btn btn-default' do
   = fa_icon 'pencil fw'
   |レビューを書く
+
+javascript:
+  var videoId = '#{@movie.video_id}';
+= javascript_include_tag 'youtube'

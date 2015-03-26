@@ -11,9 +11,19 @@ class Movie < ActiveRecord::Base
   validates :description,
       length: {maximum: 10_000}
 
-  # http://stackoverflow.com/questions/24658657/activerecord-validate-url-if-it-is-present
   validates :url,
-      format: { with: URI.regexp },
+      format: { with: %r|\Ahttps?://www\.youtube\.com| },
       allow_blank: true
 
+  def video_id
+    return '' if self.url.blank?
+    YoutubeUtils.get_video_id(self.url)
+  end
+
+  def thumbnail_url
+    return '' if self.video_id.blank?
+
+    # http://stackoverflow.com/questions/2068344/how-do-i-get-a-youtube-video-thumbnail-from-the-youtube-api
+    "http://img.youtube.com/vi/#{video_id}/mqdefault.jpg"
+  end
 end

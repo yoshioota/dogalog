@@ -13,3 +13,11 @@ div.text-center
     = link_to new_user_session_path, class: 'btn btn-default' do
       = fa_icon 'sign-in fw'
       |ログイン
+
+div
+  h4 新着動画
+  .row
+    - Movie.order('id DESC').limit(30).each do |movie|
+      .col-sm-4
+        = link_to movie do
+          = image_tag movie.thumbnail_url, class: 'img-responsive'

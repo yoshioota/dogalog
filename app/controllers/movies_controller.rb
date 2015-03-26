@@ -18,6 +18,10 @@ class MoviesController < ApplicationController
     add_breadcrumb @movie.title
   end
 
+  def video_id
+    YoutubeUtils.get_video_id(self.url)
+  end
+
   private
 
   def set_movie

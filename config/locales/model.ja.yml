@@ -11,6 +11,8 @@ ja:
         title: タイトル
         description: 内容
         url: URL
+        rating: 評価
+        in_public: 公開状態
 
       user:
         display_name: 表示名

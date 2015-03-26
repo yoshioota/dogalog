@@ -2,7 +2,9 @@
   = render 'shared/record_error_check', record: f.object
 
   = f.text_field :title, autofocus: true
-  = f.text_area :description, rows: 10
-  = f.text_field :url
 
-  .actions = f.submit
+  = f.text_area :description, rows: 10
+
+  = f.text_field :url, label: 'URL youtubeのURLをhttpsから入力して下さい。 例)  https://www.youtube.com/watch?v=6XvmhE1J9PY'
+
+  = f.submit

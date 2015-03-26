@@ -1,12 +1,18 @@
-h1
+.row
+  .col-xs-12.text-center
+    #youtube-player
+
+p
+  strong Title:
   = @movie.title
 
 p
   strong Description:
   = @movie.description
+
 p
   strong Url:
-  = @movie.url
+  = link_to @movie.url, @movie.url, target: :_blank
 
 p
   strong 登録した人:
@@ -24,11 +30,16 @@ div
   - @movie.reviews.in_public.each do |review|
     .well
       div
-        = link_to review.title, review_path(review)
+        |#{link_to review.user.image_tag_and_name, u_path(review.user)}さん
       div
-        |点数:#{review.rating}
+        = review.title
       div
         = simple_format truncate(review.description)
         = link_to 'もっと読む..', review_path(review)
       div
-        |#{link_to review.user.image_tag_and_name, u_path(review.user)}さん
+        |点数:#{review.rating}
+
+javascript:
+  var videoId = '#{@movie.video_id}';
+
+= javascript_include_tag 'youtube'
