@@ -1,0 +1,24 @@
+h1 Listing Users
+
+div
+  = paginate @users
+
+table.table
+  thead
+    tr
+      th ID
+      th 表示名
+      th Email
+      th 投稿動画数
+      th レビュー数
+      th 状態
+
+  tbody
+    - @users.each do |user|
+      tr
+        td = link_to user.id, [:desk, user]
+        td = user.image_tag_and_name
+        td = user.email
+        td = user.movies_count
+        td = user.reviews_count
+        td = user.user_status.translate

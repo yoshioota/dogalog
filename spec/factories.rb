@@ -27,4 +27,12 @@ FactoryGirl.define do
     password_confirmation { 'password' }
     confirmed_at { Time.now }
   end
+
+  factory :desk_user do
+    email { generate(:email) }
+    display_name { Faker::Name.name }
+    password { 'password' }
+    password_confirmation { 'password' }
+    confirmed_at { Time.now }
+  end
 end

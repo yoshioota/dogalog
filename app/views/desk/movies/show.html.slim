@@ -1,0 +1,35 @@
+div
+  h4 動画情報
+
+  p
+    strong Title:
+    = @movie.title
+  p
+    strong Description:
+    = @movie.description
+
+  p
+    strong URL:
+    = @movie.url
+
+hr
+
+div
+  h4 レビュー #{number_with_delimiter(@movie.reviews.count)}件
+  - @movie.reviews.each do |review|
+    .well
+      |#{link_to review.user.image_tag_and_name, [:desk, review.user]}さん
+
+      = link_to [:desk, review] do
+        div
+          |タイトル:
+          = review.title
+        div
+          |コメント:
+          = truncate review.description
+        div
+          |公開状態:
+          = review.in_public
+        div
+          |点数:
+          = review.rating

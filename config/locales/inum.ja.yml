@@ -1,0 +1,6 @@
+ja:
+  user_status:
+    active:   有効
+    lock:     ロック
+    withdraw: 退会
+

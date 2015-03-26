@@ -1,5 +1,7 @@
 class User < ActiveRecord::Base
 
+  bind_inum :user_status, UserStatus
+
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise(

@@ -20,3 +20,4 @@ ja:
         current_password: 現在のパスワード
         password: パスワード
         password_confirmation: パスワード(確認)
+        user_status: 状態

@@ -1,0 +1,45 @@
+doctype html
+html
+  head
+    meta charset='UTF-8'
+    title
+      | DogaLog DESK
+    = stylesheet_link_tag    'application', media: 'all'
+    = javascript_include_tag 'application'
+    = csrf_meta_tags
+
+  body
+    nav.navbar.navbar-inverse.navbar-static-top
+      .container
+        .navbar-header
+          button.navbar-toggle.collapsed[type="button" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar"]
+            span.sr-only
+              | Toggle navigation
+            span.icon-bar
+            span.icon-bar
+            span.icon-bar
+
+          = link_to 'DogaLog DESK', '/desk', class: 'navbar-brand'
+
+        #navbar.collapse.navbar-collapse
+          - if current_desk_user
+            ul.nav.navbar-nav.navbar-right
+              li
+                = link_to current_desk_user.image_tag_and_email, home_path
+              li
+                = link_to destroy_desk_user_session_path, method: :delete do
+                  = fa_icon 'sign-out fw'
+                  |ログアウト
+
+    .container
+      = render 'shared/breadcrumbs'
+
+    .container
+      .row
+        .col-xs-12.js-alert-area
+          - if flash.present?
+            - flash.each do |type, msg|
+              = render partial: 'shared/alert_check', locals: {alert_type: convert_alert_ype(type), msg: msg}
+
+    div*{class: content_for?(:container) ? yield(:container) : 'container'}
+      = yield

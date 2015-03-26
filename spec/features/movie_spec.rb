@@ -13,7 +13,7 @@ feature '動画一覧ページ' do
     expect(page).to have_content 'ゴーストバスターズ'
 
     # 詳細を表示
-    click_link 'ゴーストバスターズ'
+    all(:link_or_button, 'ゴーストバスターズ')[0].click
 
     click_link 'レビューする'
 

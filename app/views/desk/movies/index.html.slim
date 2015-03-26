@@ -1,0 +1,20 @@
+h1 Listing Movies
+
+div
+  = paginate @movies
+
+table.table
+  thead
+    tr
+      th ID
+      th Title
+      th Description
+      th Owner
+
+  tbody
+    - @movies.each do |movie|
+      tr
+        td = link_to movie.id, [:desk, movie]
+        td = movie.title
+        td = movie.description
+        td = link_to movie.user.image_tag_and_name, [:desk, movie.user]

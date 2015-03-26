@@ -20,9 +20,25 @@ Rails.application.routes.draw do
   end
 
   devise_for :users, controllers: {
-      registrations: 'users/registrations'
+    registrations: 'users/registrations',
+    sessions: 'users/sessions'
   }
 
-  get 'welcome/index'
+  if ENV['ENABLE_DESK'].to_i == 1
+
+    get '/desk' => 'desk/home#index'
+    namespace :desk do
+      resources :movies
+      resources :reviews
+      resources :users
+      resources :desk_users
+    end
+
+    devise_for :desk_users, controllers: {
+      sessions: 'desk_users/sessions'
+    }
+
+  end
+
   root 'welcome#index'
 end

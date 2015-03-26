@@ -1,6 +1,7 @@
 class Review < ActiveRecord::Base
+
   belongs_to :movie
-  belongs_to :user
+  belongs_to :user, counter_cache: true
 
   scope :by_movie, ->(movie){ where(movie_id: movie) }
 

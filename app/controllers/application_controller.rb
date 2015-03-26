@@ -9,6 +9,8 @@ class ApplicationController < ActionController::Base
   # 例外が出た場合ロールバックする。
   around_action :wrap_transaction, only: [:create, :update, :destroy]
 
+  layout 'general_layout'
+
   private
 
   def wrap_transaction

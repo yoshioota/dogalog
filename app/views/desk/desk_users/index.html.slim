@@ -1,0 +1,16 @@
+h1 Listing Desk Users
+
+div
+  = paginate @desk_users
+
+table.table
+  thead
+    tr
+      th ID
+      th Email
+
+  tbody
+    - @desk_users.each do |desk_user|
+      tr
+        td = link_to desk_user.id, [:desk, desk_user]
+        td = desk_user.image_tag_and_email

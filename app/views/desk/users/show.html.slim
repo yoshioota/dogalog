@@ -1,0 +1,49 @@
+div
+  h4 基本情報
+
+  = bootstrap_form_for [:desk, @user] do |f|
+    p
+      strong ID:
+      = @user.id
+
+    p
+      strong Email:
+      = @user.email
+
+    p
+      strong 表示名:
+      = @user.image_tag_and_name
+
+    p
+      = f.select :user_status, options_for_select(UserStatus.collection, f.object.user_status.value)
+
+    p
+      = f.submit class: 'btn btn-default'
+
+hr
+
+div
+  h4 登録動画 #{@user.movies.count}件
+  - @user.movies.each do |movie|
+    .well
+      = link_to movie.title, [:desk, movie]
+
+hr
+
+div
+  h4 レビュー #{number_with_delimiter(@user.reviews.count)}件
+  - @user.reviews.each do |review|
+    .well
+      = link_to [:desk, review] do
+        div
+          |タイトル:
+          = review.title
+        div
+          |コメント:
+          = truncate review.description
+        div
+          |公開状態:
+          = review.in_public
+        div
+          |点数:
+          = review.rating

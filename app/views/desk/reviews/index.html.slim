@@ -1,0 +1,22 @@
+h1 Listing Reviews
+
+div
+  = paginate @reviews
+
+table.table
+  thead
+    tr
+      th ID
+      th Title
+      th Description
+      th Review
+      th Movie
+
+  tbody
+    - @reviews.each do |review|
+      tr
+        td = link_to review.id, [:desk, review]
+        td = review.title
+        td = truncate(review.description)
+        td = link_to review.user.try(:image_tag_and_name), [:desk, review.user]
+        td = link_to review.movie.try(:title), [:desk, review.movie]

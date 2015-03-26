@@ -11,6 +11,13 @@ class Users::SessionsController < Devise::SessionsController
   #   super
   # end
 
+  def after_sign_in_path_for(resource)
+    unless resource.user_status == UserStatus::ACTIVE
+      reset_session
+    end
+    '/'
+  end
+
   # DELETE /resource/sign_out
   # def destroy
   #   super

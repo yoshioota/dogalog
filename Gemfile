@@ -60,6 +60,10 @@ gem 'font-awesome-rails'
 gem 'foreman'
 gem 'puma'
 
+# $ rails s をした時に .envファイルを読ませる
+# config/application.rb に設定追加
+gem 'dotenv-rails'
+
 # herokuで動かすときはこれが必要
 gem 'rails_12factor', group: :production
 
@@ -149,3 +153,8 @@ gem 'kaminari'
 # youtube_utils.rbにて使用しているのですが、
 # gem宣言をしないとheroku へデプロイした際(uninitialized constant)エラーとなるので追加。
 gem 'addressable', require: 'addressable/template'
+
+# 列挙型を実現
+# enumerize と悩んだけど、使ったことがなかったのでこちらを使用
+# https://github.com/alfa-jpn/inum
+gem 'inum'

@@ -1,0 +1,32 @@
+.row
+  |[TODO] 検索用のgemを適用する
+
+.row
+  .col-sm-4
+    .panel.panel-default
+      .panel-heading
+        = link_to "ユーザー (#{User.count})", desk_users_path
+      .panel-body
+        |ユーザー
+
+  .col-sm-4
+    .panel.panel-default
+      .panel-heading
+        = link_to "デスクユーザー (#{DeskUser.count})", desk_desk_users_path
+      .panel-body
+        div デスクユーザー
+
+.row
+  .col-sm-4
+    .panel.panel-default
+      .panel-heading
+        = link_to "動画 (#{Movie.count})", desk_movies_path
+      .panel-body
+        |動画
+
+  .col-sm-4
+    .panel.panel-default
+      .panel-heading
+        = link_to "レビュー (#{Review.count})", desk_reviews_path
+      .panel-body
+        |レビュー
