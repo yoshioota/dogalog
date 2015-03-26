@@ -12,6 +12,13 @@ Rails.application.routes.draw do
     end
   end
 
+  namespace :settings do
+    # resource にすると routes は settings_account_pathだけど controller は settings/accounts_controller.rbになる。。
+    resource :account
+    resource :change_password
+    resource :withdrawal
+  end
+
   devise_for :users, controllers: {
       registrations: 'users/registrations'
   }

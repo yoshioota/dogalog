@@ -1,0 +1,10 @@
+# https://circleci.com/docs/config-sample
+
+machine:
+  timezone:
+    Asia/Tokyo
+
+  # Version of ruby to use
+  ruby:
+    version:
+      2.2.1

@@ -1,0 +1,10 @@
+h2 アカウント設定
+
+= bootstrap_form_for @user, url: settings_account_path do |f|
+  = render 'shared/record_error_check', record: @user
+
+  = f.text_field :display_name, autofocus: true
+
+  = f.email_field :email
+
+  = f.submit

@@ -19,6 +19,11 @@ class DeviseCreateUsers < ActiveRecord::Migration
       t.inet     :current_sign_in_ip
       t.inet     :last_sign_in_ip
 
+      #
+      # 以下は初めからコメントアウトしておいたほうが良い。
+      # 特にconfirmableはまともなサービスを作るなら登録時のメアド確認、変更時の確認は必須なので。。
+      #
+
       ## Confirmable
       # t.string   :confirmation_token
       # t.datetime :confirmed_at

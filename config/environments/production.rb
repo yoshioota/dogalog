@@ -76,4 +76,14 @@ Rails.application.configure do
 
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
+
+  # [NOTE] ヘロクでメールを送るときに追加設定をする必要が有り
+  # production.rb に
+  # config.action_mailer.default_url_options = {host: ENV['MAIL_HOST']}
+  # を入れ
+  # $ heroku config:set MAIL_HOST=***.herokuapp.com -a YOUR_APP_NAME
+  # としてhost名を設定すること。
+  # そうしないとメールが送れずにエラーになる
+  config.action_mailer.default_url_options = {host: ENV['MAIL_HOST']}
+
 end

@@ -1,0 +1,20 @@
+---
+ja:
+  activerecord:
+    attributes:
+      movie:
+        title: タイトル
+        description: 内容
+        url: URL
+
+      review:
+        title: タイトル
+        description: 内容
+        url: URL
+
+      user:
+        display_name: 表示名
+        email: EMail
+        current_password: 現在のパスワード
+        password: パスワード
+        password_confirmation: パスワード(確認)
