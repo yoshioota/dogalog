@@ -8,7 +8,7 @@ FactoryGirl.define do
     association :user, factory: :user
     title { 'MyString' }
     description { 'MyText' }
-    url { 'http://example.com/' }
+    url { 'https://www.youtube.com/watch?v=6XvmhE1J9PY' }
   end
 
   factory :review do

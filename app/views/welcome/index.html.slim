@@ -1,8 +1,17 @@
 div.text-center
   h1
     | 動画をレビューするサービスです。
+
   p.lead
     | Railsの学習用としてシンプルに作ってます。
+
+  div
+    |Github URL:&nbsp;
+    = link_to *(['https://github.com/yoshioota/dogalog'] * 2), target: :_blank
+
+  div
+    |Qiita URL:&nbsp;
+    = link_to *(['http://qiita.com/yoshioota/items/c963e03a38c5ef8ce7ce'] * 2), target: :_blank
 
 - if current_user.nil?
   p.text-center
@@ -15,9 +24,12 @@ div.text-center
       |ログイン
 
 div
-  h4 新着動画
+  h4 新着レビュー
   .row
-    - Movie.order('id DESC').limit(30).each do |movie|
+    - Review.order('id DESC').limit(30).includes(:movie, :user).each do |review|
       .col-sm-4
-        = link_to movie do
-          = image_tag movie.thumbnail_url, class: 'img-responsive'
+        div
+          = link_to review.movie do
+            = image_tag review.movie.thumbnail_url, class: 'img-responsive', alt: review.movie.title
+        div #{link_to review.user.image_tag_and_name}さん
+        div #{link_to truncate(review.title), review} #{review.rating}点

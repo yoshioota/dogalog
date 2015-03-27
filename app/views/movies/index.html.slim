@@ -3,13 +3,15 @@ h1 動画一覧
 table.table
   thead
     tr
-      th Title
+      th(width = 200)
       th Description
 
   tbody
     - @movies.each do |movie|
       tr
-        td = link_to movie.title, movie
+        td.text-center
+          div = link_to image_tag(movie.thumbnail_url('default')), movie
+          div = link_to movie.title, movie
         td = movie.description
 
 .text-center

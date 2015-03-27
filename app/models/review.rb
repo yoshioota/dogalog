@@ -6,6 +6,8 @@ class Review < ActiveRecord::Base
 
   scope :in_public, ->{ where(in_public: true) }
 
+  scope :order_id_desc, -> { order('id DESC') }
+
   validates :title,
       presence: true,
       length: {maximum: 255}

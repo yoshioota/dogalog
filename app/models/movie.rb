@@ -4,6 +4,8 @@ class Movie < ActiveRecord::Base
 
   has_many :reviews, dependent: :destroy
 
+  scope :order_id_desc, -> { order('id DESC') }
+
   validates :title,
       presence: true,
       length: {maximum: 255}
@@ -20,10 +22,11 @@ class Movie < ActiveRecord::Base
     YoutubeUtils.get_video_id(self.url)
   end
 
-  def thumbnail_url
+  # http://stackoverflow.com/questions/2068344/how-do-i-get-a-youtube-video-thumbnail-from-the-youtube-api
+  def thumbnail_url(img_type = 'mqdefault')
     return '' if self.video_id.blank?
+    raise img_type.inspect unless img_type.in?(%w|default hqdefault mqdefault sddefault maxresdefault|)
 
-    # http://stackoverflow.com/questions/2068344/how-do-i-get-a-youtube-video-thumbnail-from-the-youtube-api
-    "http://img.youtube.com/vi/#{video_id}/mqdefault.jpg"
+    "http://img.youtube.com/vi/#{video_id}/#{img_type}.jpg"
   end
 end
