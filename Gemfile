@@ -158,3 +158,7 @@ gem 'addressable', require: 'addressable/template'
 # enumerize と悩んだけど、使ったことがなかったのでこちらを使用
 # https://github.com/alfa-jpn/inum
 gem 'inum'
+
+# 開発環境、ステージング環境は一別できるようバナーを付ける
+# https://github.com/dtaniwaki/rack-dev-mark
+gem 'rack-dev-mark'
