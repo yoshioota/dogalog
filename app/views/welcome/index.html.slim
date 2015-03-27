@@ -1,16 +1,16 @@
 div.text-center
   h1
-    | 動画をレビューするサービスです。
+    | Youtubeの動画をレビューするサービスです。
 
   p.lead
     | Railsの学習用としてシンプルに作ってます。
 
   div
-    |Github URL:&nbsp;
+    |ソースコード URL:&nbsp;
     = link_to *(['https://github.com/yoshioota/dogalog'] * 2), target: :_blank
 
   div
-    |Qiita URL:&nbsp;
+    |解説 URL:&nbsp;
     = link_to *(['http://qiita.com/yoshioota/items/c963e03a38c5ef8ce7ce'] * 2), target: :_blank
 
 - if current_user.nil?
