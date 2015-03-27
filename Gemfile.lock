@@ -314,6 +314,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  addressable
   autoprefixer-rails
   awesome_print
   better_errors

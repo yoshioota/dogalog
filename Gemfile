@@ -145,3 +145,7 @@ end
 # http://ruby-journal.com/how-to-style-kaminari-pagination-with-twitter-bootstrap-3/
 # rails generate kaminari:views bootstrap3
 gem 'kaminari'
+
+# youtube_utils.rbにて使用しているのですが、
+# gem宣言をしないとheroku へデプロイした際(uninitialized constant)エラーとなるので追加。
+gem 'addressable', require: 'addressable/template'
