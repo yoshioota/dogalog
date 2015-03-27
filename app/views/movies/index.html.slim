@@ -10,7 +10,7 @@ table.table
     - @movies.each do |movie|
       tr
         td.text-center
-          div = link_to image_tag(movie.thumbnail_url('default')), movie
+          div = link_to image_tag(movie.thumbnail_url('default'), alt: movie.title), movie
           div = link_to movie.title, movie
         td = movie.description
 

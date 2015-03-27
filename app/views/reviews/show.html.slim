@@ -8,8 +8,15 @@ h2
 hr
 
 p
-  = link_to @review.user.image_tag_and_name, u_path(@review.user)
-  |さんのレビュー
+  - if @review.user == current_user
+    |あなたのレビュー&nbsp;&nbsp;
+    = link_to edit_home_movie_review_path(@review.movie, @review), class: 'btn btn-default btn-sm' do
+      = fa_icon 'edit fw'
+      |変更する
+  - else
+    = link_to @review.user.image_tag_and_name, u_path(@review.user)
+    |さんのレビュー
+
 
 p
   strong Title:
@@ -17,7 +24,7 @@ p
 
 p
   strong Description:
-  = @review.description
+  = simple_format @review.description
 
 p
   strong Rating:
