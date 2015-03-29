@@ -3,19 +3,15 @@ class ApplicationController < ActionController::Base
   # For APIs, you may want to use :null_session instead.
   protect_from_forgery with: :exception
 
+  # BASIC認証の設定
   include BasicAuthConcern
+
+  # パンくず対応
   include SimpleBreadcrumbs
 
-  # 例外が出た場合ロールバックする。
-  around_action :wrap_transaction, only: [:create, :update, :destroy]
+  # 更新系は自動でトランザクションを実行
+  include WrapTransaction
 
   layout 'general_layout'
 
-  private
-
-  def wrap_transaction
-    ActiveRecord::Base.transaction do
-      yield
-    end
-  end
 end
